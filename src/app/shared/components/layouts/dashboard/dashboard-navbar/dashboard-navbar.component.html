@@ -1,0 +1,23 @@
+<header class="navbar">
+  <div class="navbar-left">
+    <button class="menu-toggle">
+      <fa-icon [icon]="faBars"></fa-icon>
+    </button>
+  </div>
+  <div class="navbar-right">
+    <div class="user-profile">
+      @if (userProfile?.avatar) {
+      <img
+        [src]="userProfile?.avatar"
+        [alt]="userProfile?.name"
+        class="avatar"
+      />
+      }
+      <span class="user-name">{{ userProfile?.name || "Guest" }}</span>
+      <button class="logout-button" (click)="onLogout()">
+        <fa-icon [icon]="faSignOutAlt"></fa-icon>
+        Logout
+      </button>
+    </div>
+  </div>
+</header>

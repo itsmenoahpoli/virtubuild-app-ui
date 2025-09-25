@@ -1,0 +1,17 @@
+<div class="sidebar-header">
+  <h1>{{ appTitle }}</h1>
+</div>
+<nav class="sidebar-nav">
+  <ul>
+    @for (item of sidebarItems; track item.route) {
+    <li>
+      <a [routerLink]="item.route" routerLinkActive="active">
+        @if (item.icon) {
+        <i [class]="item.icon"></i>
+        }
+        <span>{{ item.label }}</span>
+      </a>
+    </li>
+    }
+  </ul>
+</nav>

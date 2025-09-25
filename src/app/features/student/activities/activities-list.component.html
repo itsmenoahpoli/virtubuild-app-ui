@@ -1,0 +1,10 @@
+<div>
+  <h2>Activities</h2>
+  <ul>
+    <li *ngFor="let a of activities">
+      <a [routerLink]="['/student/activities', a.id]">{{ a.title }}</a>
+    </li>
+  </ul>
+</div>
+
+
