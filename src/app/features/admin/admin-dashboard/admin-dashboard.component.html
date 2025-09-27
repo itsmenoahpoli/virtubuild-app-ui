@@ -1,0 +1,87 @@
+<div class="admin-dashboard">
+  <div class="dashboard-header">
+    <h1>Admin Dashboard</h1>
+    <p>System overview and management</p>
+  </div>
+
+  <div class="dashboard-content" *ngIf="!loading">
+    <div class="stats-grid">
+      <div class="stat-card" *ngIf="dashboardStats.totalUsers">
+        <div class="stat-icon">👥</div>
+        <div class="stat-content">
+          <h3>{{ dashboardStats.totalUsers }}</h3>
+          <p>Total Users</p>
+        </div>
+      </div>
+
+      <div class="stat-card" *ngIf="dashboardStats.totalModules">
+        <div class="stat-icon">📚</div>
+        <div class="stat-content">
+          <h3>{{ dashboardStats.totalModules }}</h3>
+          <p>Learning Modules</p>
+        </div>
+      </div>
+
+      <div class="stat-card" *ngIf="dashboardStats.totalActivities">
+        <div class="stat-icon">🔧</div>
+        <div class="stat-content">
+          <h3>{{ dashboardStats.totalActivities }}</h3>
+          <p>Lab Activities</p>
+        </div>
+      </div>
+
+      <div class="stat-card" *ngIf="dashboardStats.totalSimulations">
+        <div class="stat-icon">💻</div>
+        <div class="stat-content">
+          <h3>{{ dashboardStats.totalSimulations }}</h3>
+          <p>Simulations</p>
+        </div>
+      </div>
+
+      <div class="stat-card" *ngIf="dashboardStats.activeStudents">
+        <div class="stat-icon">🎓</div>
+        <div class="stat-content">
+          <h3>{{ dashboardStats.activeStudents }}</h3>
+          <p>Active Students</p>
+        </div>
+      </div>
+
+      <div class="stat-card" *ngIf="dashboardStats.completionRate">
+        <div class="stat-icon">📊</div>
+        <div class="stat-content">
+          <h3>{{ dashboardStats.completionRate }}%</h3>
+          <p>Completion Rate</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard-sections">
+      <div class="section">
+        <h2>Quick Actions</h2>
+        <div class="action-buttons">
+          <button class="action-btn" routerLink="/admin/users">
+            <span class="btn-icon">👥</span>
+            Manage Users
+          </button>
+          <button class="action-btn" routerLink="/admin/student-groups">
+            <span class="btn-icon">👨‍👩‍👧‍👦</span>
+            Student Groups
+          </button>
+          <button class="action-btn" routerLink="/admin/modules">
+            <span class="btn-icon">📚</span>
+            Manage Modules
+          </button>
+          <button class="action-btn" routerLink="/admin/analytics">
+            <span class="btn-icon">📊</span>
+            View Analytics
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="loading-spinner" *ngIf="loading">
+    <div class="spinner"></div>
+    <p>Loading dashboard...</p>
+  </div>
+</div>

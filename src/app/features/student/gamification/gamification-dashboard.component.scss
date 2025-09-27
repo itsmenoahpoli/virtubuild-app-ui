@@ -1,0 +1,373 @@
+.gamification-dashboard {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .dashboard-header {
+    margin-bottom: 2rem;
+    text-align: center;
+
+    h1 {
+      color: #2c3e50;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+  }
+
+  .dashboard-content {
+    display: grid;
+    gap: 2rem;
+
+    .my-progress-section {
+      .progress-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        h2 {
+          color: #2c3e50;
+          margin-bottom: 1.5rem;
+          font-size: 1.5rem;
+        }
+
+        .progress-stats {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+          gap: 1.5rem;
+          margin-bottom: 2rem;
+
+          .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+
+            .stat-icon {
+              font-size: 2.5rem;
+              width: 60px;
+              height: 60px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: white;
+              border-radius: 50%;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .stat-content {
+              h3 {
+                font-size: 2rem;
+                color: #2c3e50;
+                margin: 0 0 0.25rem 0;
+                font-weight: 700;
+              }
+
+              p {
+                color: #6c757d;
+                margin: 0;
+                font-size: 0.9rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+              }
+            }
+          }
+        }
+
+        .level-progress {
+          .level-info {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+
+            .current-level, .next-level {
+              font-weight: 600;
+              color: #2c3e50;
+            }
+          }
+
+          .progress-bar {
+            width: 100%;
+            height: 12px;
+            background: #e9ecef;
+            border-radius: 6px;
+            overflow: hidden;
+            margin-bottom: 0.5rem;
+
+            .progress-fill {
+              height: 100%;
+              background: linear-gradient(90deg, #3498db, #2ecc71);
+              transition: width 0.3s ease;
+            }
+          }
+
+          .progress-text {
+            text-align: center;
+            color: #6c757d;
+            font-size: 0.9rem;
+          }
+        }
+      }
+    }
+
+    .achievements-section {
+      .achievements-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        h2 {
+          color: #2c3e50;
+          margin-bottom: 1.5rem;
+          font-size: 1.5rem;
+        }
+
+        .badges-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 1.5rem;
+
+          .badge-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 2px solid #e9ecef;
+
+            .badge-icon {
+              font-size: 2.5rem;
+              width: 60px;
+              height: 60px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              background: white;
+              border-radius: 50%;
+              box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .badge-info {
+              flex: 1;
+
+              h4 {
+                color: #2c3e50;
+                margin: 0 0 0.25rem 0;
+                font-size: 1.1rem;
+              }
+
+              p {
+                color: #6c757d;
+                margin: 0 0 0.5rem 0;
+                font-size: 0.9rem;
+              }
+
+              .badge-date {
+                color: #95a5a6;
+                font-size: 0.8rem;
+              }
+            }
+          }
+        }
+
+        .no-badges {
+          text-align: center;
+          padding: 3rem;
+          color: #6c757d;
+
+          p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+          }
+
+          .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &.btn-primary {
+              background: #3498db;
+              color: white;
+
+              &:hover {
+                background: #2980b9;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .leaderboard-section {
+      .leaderboard-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        h2 {
+          color: #2c3e50;
+          margin-bottom: 1.5rem;
+          font-size: 1.5rem;
+        }
+
+        .leaderboard-list {
+          .leaderboard-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+            transition: background 0.2s ease;
+
+            &:hover {
+              background: #f8f9fa;
+            }
+
+            &.my-rank {
+              background: #e3f2fd;
+              border: 2px solid #3498db;
+              border-radius: 8px;
+            }
+
+            .rank {
+              font-size: 1.5rem;
+              font-weight: 700;
+              color: #2c3e50;
+              min-width: 40px;
+            }
+
+            .player-info {
+              flex: 1;
+
+              .player-name {
+                font-weight: 600;
+                color: #2c3e50;
+                margin-bottom: 0.25rem;
+              }
+
+              .player-stats {
+                display: flex;
+                gap: 1rem;
+                font-size: 0.9rem;
+                color: #6c757d;
+
+                .points {
+                  font-weight: 600;
+                }
+              }
+            }
+
+            .player-badges {
+              .badge-count {
+                background: #f39c12;
+                color: white;
+                padding: 0.25rem 0.75rem;
+                border-radius: 12px;
+                font-size: 0.8rem;
+                font-weight: 500;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .top-performers-section {
+      .top-performers-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+        h2 {
+          color: #2c3e50;
+          margin-bottom: 1.5rem;
+          font-size: 1.5rem;
+        }
+
+        .performers-list {
+          .performer-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid #e9ecef;
+
+            &:hover {
+              background: #f8f9fa;
+            }
+
+            .performer-rank {
+              font-size: 1.2rem;
+              font-weight: 700;
+              color: #f39c12;
+              min-width: 30px;
+            }
+
+            .performer-info {
+              flex: 1;
+
+              .performer-name {
+                font-weight: 600;
+                color: #2c3e50;
+                margin-bottom: 0.25rem;
+              }
+
+              .performer-achievement {
+                font-size: 0.9rem;
+                color: #6c757d;
+              }
+            }
+
+            .performer-score {
+              font-weight: 600;
+              color: #27ae60;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .loading-spinner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4rem;
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #f3f3f3;
+      border-top: 4px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #7f8c8d;
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

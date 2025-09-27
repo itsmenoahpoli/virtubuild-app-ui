@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { AssessmentsService } from '@/app/core/services';
-import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
+import { ReactiveFormsModule, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-assessment-editor',
@@ -16,6 +16,10 @@ export class AssessmentEditorComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private fb: FormBuilder) {
     this.form = this.fb.group({ content: [''] });
+  }
+
+  get contentControl(): FormControl {
+    return this.form.get('content') as FormControl;
   }
 
   async ngOnInit() {

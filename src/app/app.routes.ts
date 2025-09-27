@@ -13,6 +13,15 @@ import { AssessmentEditorComponent } from './features/instructor/assessments/ass
 import { AuthGuard } from './core/guards/auth.guard';
 import { RoleGuard } from './core/guards/role.guard';
 
+// NEW COMPONENTS
+import { AdminDashboardComponent } from './features/admin/admin-dashboard/admin-dashboard.component';
+import { UserManagementComponent } from './features/admin/users/user-management.component';
+import { StudentGroupsManagementComponent } from './features/admin/student-groups/student-groups-management.component';
+import { PcAssemblySimulationComponent } from './features/student/simulation/pc-assembly-simulation.component';
+import { GamificationDashboardComponent } from './features/student/gamification/gamification-dashboard.component';
+import { ProgressTrackingComponent } from './features/student/progress/progress-tracking.component';
+import { AssessmentSubmissionsComponent } from './features/student/assessments/assessment-submissions.component';
+
 export const routes: Routes = [
   {
     path: '',
@@ -31,8 +40,12 @@ export const routes: Routes = [
       { path: '', component: StudentDashboardComponent },
       { path: 'activities', component: ActivitiesListComponent },
       { path: 'activities/:id', component: ActivityDetailComponent },
+      { path: 'simulation/:activityId', component: PcAssemblySimulationComponent },
       { path: 'grades', component: GradesPageComponent },
       { path: 'analytics', component: AnalyticsPageComponent },
+      { path: 'progress', component: ProgressTrackingComponent },
+      { path: 'gamification', component: GamificationDashboardComponent },
+      { path: 'assessments', component: AssessmentSubmissionsComponent },
     ],
   },
   {
@@ -44,6 +57,17 @@ export const routes: Routes = [
       { path: 'manage-modules', component: ManageModulesComponent },
       { path: 'grades', component: InstructorGradesComponent },
       { path: 'assessments/:moduleId', component: AssessmentEditorComponent },
+      { path: 'student-groups', component: StudentGroupsManagementComponent },
+    ],
+  },
+  {
+    path: 'admin',
+    canActivate: [AuthGuard, RoleGuard],
+    data: { roles: ['admin'] },
+    children: [
+      { path: '', component: AdminDashboardComponent },
+      { path: 'users', component: UserManagementComponent },
+      { path: 'student-groups', component: StudentGroupsManagementComponent },
     ],
   },
   {
