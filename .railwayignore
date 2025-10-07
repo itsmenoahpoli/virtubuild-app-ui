@@ -1,3 +1,5 @@
+package.json
+package-lock.json
 node_modules
 npm-debug.log
 .git
@@ -11,4 +13,3 @@ coverage
 *.md
 dist
 .DS_Store
-package-lock.json
