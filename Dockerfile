@@ -20,7 +20,7 @@ RUN echo '#!/bin/sh' > /entrypoint.sh && \
     echo 'nginx -g "daemon off;"' >> /entrypoint.sh && \
     chmod +x /entrypoint.sh
 
-EXPOSE 80
+EXPOSE 8080
 
 # Use custom entrypoint to prevent Railway from running npm
 ENTRYPOINT ["/entrypoint.sh"]
