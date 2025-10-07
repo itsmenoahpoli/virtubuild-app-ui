@@ -31,7 +31,8 @@ import { SystemService } from '@/app/core/services';
 })
 export class SigninComponent {
   headerLinks = [
-    { label: 'Contact', path: '/contact' },
+    { label: 'Sign In', path: '/signin' },
+    { label: 'Contact Us', path: '/contact' },
     { label: 'About Us', path: '/about-us' },
   ];
 
@@ -64,7 +65,7 @@ export class SigninComponent {
       try {
         const result = await SystemService.healthCheck();
         this.healthStatus = 'ok';
-        this.healthMessage = 'API connected';
+        this.healthMessage = '✓ API connected';
         console.info('Healthcheck result:', result);
         return;
       } catch (err: any) {
