@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "start:prod": "npx http-server dist/virtubuild-dashboard/browser -p $PORT -a 0.0.0.0",
+    "start:prod": "echo 'This script is not used in Docker deployment'",
     "build": "ng build",
     "build:prod": "ng build --configuration production",
     "watch": "ng build --watch --configuration development",
