@@ -3,10 +3,10 @@ FROM node:20-alpine AS build
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --only=production
 
 COPY . .
-RUN npm run build
+RUN npm run build:prod
 
 FROM nginx:alpine AS production
 
