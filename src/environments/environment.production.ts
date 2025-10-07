@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://api-virtubuild.up.railway.app/api',
+  apiUrl: import.meta.env['VITE_API_BASE_URL'] || 'https://api-virtubuild.up.railway.app/api',
 };
