@@ -17,7 +17,7 @@ export default defineConfig(({ mode }) => {
       include: ['@/app/shared/utils/types'],
     },
     define: {
-      'import.meta.env.VITE_API_BASE_URL': JSON.stringify(env.VITE_API_BASE_URL || 'https://api-virtubuild.up.railway.app/api'),
+      'import.meta.env.VITE_API_BASE_URL': JSON.stringify(env['VITE_API_BASE_URL'] || 'https://api-virtubuild.up.railway.app/api'),
     },
   };
 });
