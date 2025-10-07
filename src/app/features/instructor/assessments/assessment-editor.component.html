@@ -1,9 +1,10 @@
-<div>
-  <h2>Assessment Editor</h2>
-  <textarea [formControl]="contentControl" rows="10" cols="80"></textarea>
-  <div>
-    <button (click)="save()">Save</button>
-  </div>
-</div>
+<app-dashboard-layout [appTitle]="'VirtuBuild'">
+  <app-page-shell title="Assessment Editor" subtitle="Edit assessments for the selected module">
+    <textarea [formControl]="contentControl" rows="10" cols="80"></textarea>
+    <div>
+      <button (click)="save()">Save</button>
+    </div>
+  </app-page-shell>
+</app-dashboard-layout>
 
 

@@ -1,4 +1,5 @@
-<div class="user-management">
+<app-dashboard-layout [appTitle]="'VirtuBuild'">
+<app-page-shell title="User Management" subtitle="Manage users and roles">
   <div class="page-header">
     <h1>User Management</h1>
     <button class="btn btn-primary" (click)="showCreateForm = true">
@@ -141,4 +142,5 @@
     <div class="spinner"></div>
     <p>Loading users...</p>
   </div>
-</div>
+</app-page-shell>
+</app-dashboard-layout>

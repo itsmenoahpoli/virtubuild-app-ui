@@ -1,3 +1,4 @@
+<app-dashboard-layout [appTitle]="appTitle">
 <div class="assessment-submissions">
   <div class="page-header">
     <h1>Assessment Submissions</h1>
@@ -36,12 +37,12 @@
               </div>
             </div>
             <div class="assessment-actions">
-              <button class="btn btn-primary" 
+              <button class="btn btn-primary"
                       *ngIf="assessment.status !== 'completed'"
                       (click)="startAssessment(assessment)">
                 {{ assessment.status === 'in-progress' ? 'Continue' : 'Start Assessment' }}
               </button>
-              <button class="btn btn-secondary" 
+              <button class="btn btn-secondary"
                       *ngIf="assessment.status === 'completed'"
                       (click)="viewResults(assessment)">
                 View Results
@@ -100,8 +101,8 @@
               <div class="question-options">
                 <div class="option-item" *ngFor="let option of question.options; let j = index">
                   <label>
-                    <input type="radio" 
-                           [name]="'question_' + i" 
+                    <input type="radio"
+                           [name]="'question_' + i"
                            [value]="j"
                            [(ngModel)]="submissionData.answers[i]">
                     {{ option }}
@@ -128,3 +129,4 @@
     <p>Loading assessments...</p>
   </div>
 </div>
+</app-dashboard-layout>

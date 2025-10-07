@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { GamificationService } from '@/app/core/services';
+import { DashboardLayoutComponent } from '@/app/shared/components/layouts/dashboard/dashboard-layout/dashboard-layout.component';
 
 @Component({
   selector: 'app-gamification-dashboard',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, DashboardLayoutComponent],
   templateUrl: './gamification-dashboard.component.html',
   styleUrls: ['./gamification-dashboard.component.scss']
 })
 export class GamificationDashboardComponent implements OnInit {
+  appTitle = 'VirtuBuild';
   gamificationData: any = {};
   leaderboard: any[] = [];
   topPerformers: any[] = [];

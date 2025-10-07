@@ -1,3 +1,4 @@
+<app-dashboard-layout [appTitle]="appTitle">
 <div class="gamification-dashboard">
   <div class="dashboard-header">
     <h1>Gamification Dashboard</h1>
@@ -84,7 +85,7 @@
       <div class="leaderboard-card">
         <h2>Global Leaderboard</h2>
         <div class="leaderboard-list">
-          <div class="leaderboard-item" 
+          <div class="leaderboard-item"
                *ngFor="let player of leaderboard; let i = index"
                [class.my-rank]="i === myRank - 1">
             <div class="rank">{{ i + 1 }}</div>
@@ -126,3 +127,4 @@
     <p>Loading gamification data...</p>
   </div>
 </div>
+</app-dashboard-layout>

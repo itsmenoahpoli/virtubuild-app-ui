@@ -13,8 +13,15 @@ export const selectUserProfile = createSelector(
   (state: UserState) =>
     state.name
       ? {
+          id: state.id || undefined,
           name: state.name,
+          email: state.email || undefined,
           avatar: state.avatar || undefined,
         }
       : null
+);
+
+export const selectUserRole = createSelector(
+  selectUserState,
+  (state: UserState) => state.userType
 );

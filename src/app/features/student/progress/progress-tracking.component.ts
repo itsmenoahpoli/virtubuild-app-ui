@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { StudentProgressService } from '@/app/core/services';
+import { DashboardLayoutComponent } from '@/app/shared/components/layouts/dashboard/dashboard-layout/dashboard-layout.component';
 
 @Component({
   selector: 'app-progress-tracking',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, DashboardLayoutComponent],
   templateUrl: './progress-tracking.component.html',
   styleUrls: ['./progress-tracking.component.scss']
 })
 export class ProgressTrackingComponent implements OnInit {
+  appTitle = 'VirtuBuild';
   myProgress: any = {};
   assignedActivities: any[] = [];
   assignedModules: any[] = [];

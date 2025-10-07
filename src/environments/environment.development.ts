@@ -1,4 +1,4 @@
 export const environment = {
   production: false,
-  apiUrl: 'http://localhost:9000/api',
+  apiUrl: 'https://api-virtubuild.up.railway.app/api',
 };

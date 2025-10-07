@@ -1,16 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { AssessmentSubmissionsService } from '@/app/core/services';
+import { DashboardLayoutComponent } from '@/app/shared/components/layouts/dashboard/dashboard-layout/dashboard-layout.component';
 
 @Component({
   selector: 'app-assessment-submissions',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule, DashboardLayoutComponent],
   templateUrl: './assessment-submissions.component.html',
   styleUrls: ['./assessment-submissions.component.scss']
 })
 export class AssessmentSubmissionsComponent implements OnInit {
+  appTitle = 'VirtuBuild';
   mySubmissions: any[] = [];
   myHistory: any[] = [];
   loading = true;

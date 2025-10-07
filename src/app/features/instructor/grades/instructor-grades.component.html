@@ -1,8 +1,9 @@
-<div>
-  <h2>Grades Per Activity</h2>
-  <ul>
-    <li *ngFor="let g of grades">User {{ g.userId }} - Score {{ g.score }}</li>
-  </ul>
-</div>
+<app-dashboard-layout [appTitle]="'VirtuBuild'">
+  <app-page-shell title="Grades" subtitle="Grades per activity and student">
+    <ul>
+      <li *ngFor="let g of grades">User {{ g.userId }} - Score {{ g.score }}</li>
+    </ul>
+  </app-page-shell>
+</app-dashboard-layout>
 
 

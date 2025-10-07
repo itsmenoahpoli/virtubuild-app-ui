@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { DashboardLayoutComponent } from '@/app/shared/components/layouts/dashboard/dashboard-layout/dashboard-layout.component';
+import { PageShellComponent } from '@/app/shared/components/layouts/page-shell/page-shell.component';
 import { GradesService, ActivitiesService, ModulesService } from '@/app/core/services';
 
 @Component({
   selector: 'app-instructor-grades',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, DashboardLayoutComponent, PageShellComponent],
   templateUrl: './instructor-grades.component.html',
   styleUrls: ['./instructor-grades.component.scss'],
 })

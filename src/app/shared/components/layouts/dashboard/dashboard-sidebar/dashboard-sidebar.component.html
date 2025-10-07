@@ -7,9 +7,9 @@
     <li>
       <a [routerLink]="item.route" routerLinkActive="active">
         @if (item.icon) {
-        <i [class]="item.icon"></i>
+        <span class="material-icons icon">{{ item.icon }}</span>
         }
-        <span>{{ item.label }}</span>
+        <span class="label">{{ item.label }}</span>
       </a>
     </li>
     }

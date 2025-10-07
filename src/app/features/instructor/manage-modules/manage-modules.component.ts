@@ -1,11 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { DashboardLayoutComponent } from '@/app/shared/components/layouts/dashboard/dashboard-layout/dashboard-layout.component';
+import { PageShellComponent } from '@/app/shared/components/layouts/page-shell/page-shell.component';
 import { ModulesService, ActivationsService } from '@/app/core/services';
 
 @Component({
   selector: 'app-manage-modules',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule, DashboardLayoutComponent, PageShellComponent],
   templateUrl: './manage-modules.component.html',
   styleUrls: ['./manage-modules.component.scss'],
 })

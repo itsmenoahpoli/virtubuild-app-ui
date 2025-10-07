@@ -21,6 +21,15 @@ import { PcAssemblySimulationComponent } from './features/student/simulation/pc-
 import { GamificationDashboardComponent } from './features/student/gamification/gamification-dashboard.component';
 import { ProgressTrackingComponent } from './features/student/progress/progress-tracking.component';
 import { AssessmentSubmissionsComponent } from './features/student/assessments/assessment-submissions.component';
+import { UserRolesManagementComponent } from './features/admin/user-roles/user-roles-management.component';
+import { AdminModulesComponent } from './features/admin/modules/admin-modules.component';
+import { AdminLabActivitiesComponent } from './features/admin/lab-activities/admin-lab-activities.component';
+import { AdminAssessmentsComponent } from './features/admin/assessments/admin-assessments.component';
+import { AdminGradesComponent } from './features/admin/grades/admin-grades.component';
+import { AboutUsComponent } from './features/public/about-us/about-us.component';
+import { ContactComponent } from './features/public/contact/contact.component';
+import { ForgotPasswordComponent } from './features/auth/forgot-password/forgot-password.component';
+import { ResetPasswordComponent } from './features/auth/reset-password/reset-password.component';
 
 export const routes: Routes = [
   {
@@ -32,6 +41,10 @@ export const routes: Routes = [
     path: 'signin',
     component: SigninComponent,
   },
+  { path: 'about-us', component: AboutUsComponent },
+  { path: 'contact', component: ContactComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'reset-password', component: ResetPasswordComponent },
   {
     path: 'student',
     canActivate: [AuthGuard, RoleGuard],
@@ -68,6 +81,11 @@ export const routes: Routes = [
       { path: '', component: AdminDashboardComponent },
       { path: 'users', component: UserManagementComponent },
       { path: 'student-groups', component: StudentGroupsManagementComponent },
+      { path: 'modules', component: AdminModulesComponent },
+      { path: 'lab-activities', component: AdminLabActivitiesComponent },
+      { path: 'assessments', component: AdminAssessmentsComponent },
+      { path: 'grades', component: AdminGradesComponent },
+      { path: 'user-roles', component: UserRolesManagementComponent },
     ],
   },
   {

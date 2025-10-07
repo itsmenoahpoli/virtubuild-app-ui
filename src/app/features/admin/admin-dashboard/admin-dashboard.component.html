@@ -1,9 +1,5 @@
-<div class="admin-dashboard">
-  <div class="dashboard-header">
-    <h1>Admin Dashboard</h1>
-    <p>System overview and management</p>
-  </div>
-
+<app-dashboard-layout [appTitle]="'VirtuBuild'">
+  <app-page-shell title="Admin" subtitle="System overview and management">
   <div class="dashboard-content" *ngIf="!loading">
     <div class="stats-grid">
       <div class="stat-card" *ngIf="dashboardStats.totalUsers">
@@ -71,9 +67,25 @@
             <span class="btn-icon">📚</span>
             Manage Modules
           </button>
+          <button class="action-btn" routerLink="/admin/lab-activities">
+            <span class="btn-icon">🔧</span>
+            Manage Lab Activities
+          </button>
+          <button class="action-btn" routerLink="/admin/assessments">
+            <span class="btn-icon">📝</span>
+            Manage Assessments
+          </button>
+          <button class="action-btn" routerLink="/admin/grades">
+            <span class="btn-icon">🎯</span>
+            Manage Grades
+          </button>
           <button class="action-btn" routerLink="/admin/analytics">
             <span class="btn-icon">📊</span>
             View Analytics
+          </button>
+          <button class="action-btn" routerLink="/admin/user-roles">
+            <span class="btn-icon">🛡️</span>
+            Manage Roles
           </button>
         </div>
       </div>
@@ -84,4 +96,5 @@
     <div class="spinner"></div>
     <p>Loading dashboard...</p>
   </div>
-</div>
+  </app-page-shell>
+</app-dashboard-layout>

@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
+import { DashboardLayoutComponent } from '@/app/shared/components/layouts/dashboard/dashboard-layout/dashboard-layout.component';
+import { PageShellComponent } from '@/app/shared/components/layouts/page-shell/page-shell.component';
 import { AssessmentsService } from '@/app/core/services';
 import { ReactiveFormsModule, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-assessment-editor',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, DashboardLayoutComponent, PageShellComponent],
   templateUrl: './assessment-editor.component.html',
   styleUrls: ['./assessment-editor.component.scss'],
 })

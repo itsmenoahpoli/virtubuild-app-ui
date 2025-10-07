@@ -41,4 +41,12 @@ export const AuthenticationService = {
     const role = decoded?.user?.roleName || decoded?.user?.role || null;
     return role;
   },
+  requestPasswordReset: async (email: string) => {
+    const res = await httpClient.post('/auth/request-password-reset', { email });
+    return res.data;
+  },
+  resetPassword: async (token: string, newPassword: string) => {
+    const res = await httpClient.post('/auth/reset-password', { token, newPassword });
+    return res.data;
+  },
 };

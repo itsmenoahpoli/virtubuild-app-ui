@@ -1,5 +1,5 @@
-<div>
-  <h2>Manage Modules</h2>
+<app-dashboard-layout [appTitle]="'VirtuBuild'">
+  <app-page-shell title="Manage Modules" subtitle="Create, activate and manage modules">
   <div *ngFor="let m of modules" class="module-card">
     <h3>{{ m.title }}</h3>
     <div>
@@ -13,6 +13,7 @@
       </ul>
     </div>
   </div>
-</div>
+  </app-page-shell>
+</app-dashboard-layout>
 
 

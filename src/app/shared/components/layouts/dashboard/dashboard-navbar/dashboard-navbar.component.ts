@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -8,6 +8,7 @@ import { clearUser } from '@/app/core/store/user';
 
 interface UserProfile {
   name: string;
+  email?: string;
   avatar?: string;
 }
 
@@ -20,10 +21,15 @@ interface UserProfile {
 })
 export class DashboardNavbarComponent {
   @Input() userProfile: UserProfile | null = null;
+  @Output() toggleSidebar = new EventEmitter<void>();
   faBars = faBars;
   faSignOutAlt = faSignOutAlt;
 
   constructor(private store: Store, private router: Router) {}
+
+  onToggleSidebar() {
+    this.toggleSidebar.emit();
+  }
 
   onLogout() {
     this.store.dispatch(clearUser());

@@ -1,3 +1,4 @@
+<app-dashboard-layout [appTitle]="appTitle">
 <div class="progress-tracking">
   <div class="page-header">
     <h1>Progress Tracking</h1>
@@ -65,7 +66,7 @@
                 </span>
               </div>
               <div class="progress-bar">
-                <div class="progress-fill" 
+                <div class="progress-fill"
                      [style.width.%]="getCompletionPercentage(module.completedActivities || 0, module.totalActivities || 0)">
                 </div>
               </div>
@@ -96,17 +97,17 @@
               {{ getProgressStatus(activity).replace('-', ' ').toUpperCase() }}
             </span>
             <div class="activity-actions">
-              <button class="btn btn-primary" 
+              <button class="btn btn-primary"
                       *ngIf="getProgressStatus(activity) === 'not-started'"
                       (click)="submitProgress({ activityId: activity.id, status: 'started' })">
                 Start Activity
               </button>
-              <button class="btn btn-secondary" 
+              <button class="btn btn-secondary"
                       *ngIf="getProgressStatus(activity) === 'in-progress'"
                       (click)="submitProgress({ activityId: activity.id, status: 'completed' })">
                 Mark Complete
               </button>
-              <button class="btn btn-success" 
+              <button class="btn btn-success"
                       *ngIf="getProgressStatus(activity) === 'completed'"
                       disabled>
                 Completed
@@ -154,3 +155,4 @@
     <p>Loading progress data...</p>
   </div>
 </div>
+</app-dashboard-layout>

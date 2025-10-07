@@ -1,0 +1,22 @@
+<app-dashboard-layout [appTitle]="'VirtuBuild'">
+<app-page-shell title="Contact" subtitle="Get in touch with us">
+  <form (ngSubmit)="submit()" class="contact-form">
+    <label>
+      <span>Name</span>
+      <input [(ngModel)]="form.name" name="name" required />
+    </label>
+    <label>
+      <span>Email</span>
+      <input [(ngModel)]="form.email" name="email" type="email" required />
+    </label>
+    <label>
+      <span>Message</span>
+      <textarea [(ngModel)]="form.message" name="message" rows="5" required></textarea>
+    </label>
+    <button type="submit" class="btn btn-primary">Send</button>
+    <p *ngIf="submitted" class="success">Thanks! We will get back to you.</p>
+  </form>
+</app-page-shell>
+</app-dashboard-layout>
+
+
