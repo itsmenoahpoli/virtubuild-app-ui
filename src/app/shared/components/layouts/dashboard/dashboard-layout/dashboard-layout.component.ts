@@ -89,7 +89,6 @@ export class DashboardLayoutComponent implements OnInit {
         { label: 'Grades', route: '/student/grades', icon: 'grade' },
         { label: 'Analytics', route: '/student/analytics', icon: 'analytics' },
         { label: 'Progress', route: '/student/progress', icon: 'trending_up' },
-        { label: 'Gamification', route: '/student/gamification', icon: 'emoji_events' },
         { label: 'Assessments', route: '/student/assessments', icon: 'quiz' },
       ];
     }
@@ -120,10 +119,6 @@ export class DashboardLayoutComponent implements OnInit {
             route: '/admin/contents',
             icon: 'menu_book',
             children: [
-              {
-                label: 'Quizzes',
-                route: '/admin/contents/quizzes',
-              },
               {
                 label: 'Laboratories',
                 route: '/admin/contents/laboratories',

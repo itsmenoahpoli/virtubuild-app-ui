@@ -25,16 +25,20 @@ export class AssessmentEditorComponent implements OnInit {
   }
 
   async ngOnInit() {
-    const moduleId = Number(this.route.snapshot.paramMap.get('moduleId'));
-    const res = await AssessmentsService.getByModule(moduleId);
+    const labActivityId = Number(this.route.snapshot.paramMap.get('labActivityId'));
+    const res = await AssessmentsService.getByLabActivity(labActivityId);
     const quiz = res?.data?.quiz || {};
     this.form.patchValue({ content: JSON.stringify(quiz) });
   }
 
   async save() {
-    const moduleId = Number(this.route.snapshot.paramMap.get('moduleId'));
+    const labActivityId = Number(this.route.snapshot.paramMap.get('labActivityId'));
     const content = this.form.value.content;
-    await AssessmentsService.upsert(moduleId, JSON.parse(content || '{}'));
+    const assessmentData = {
+      labActivityId,
+      ...JSON.parse(content || '{}')
+    };
+    await AssessmentsService.create(assessmentData);
     alert('Saved');
   }
 }

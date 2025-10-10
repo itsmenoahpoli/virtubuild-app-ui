@@ -12,9 +12,7 @@ import { Store } from '@ngrx/store';
 import { setUserProfile, setUserType } from '@/app/core/store/user/user.actions';
 import { Router } from '@angular/router';
 import { FormInputComponent } from '@/app/shared/components/ui/form/form-input/form-input.component';
-import { RadioGroupComponent } from '@/app/shared/components/ui/form/radio-group/radio-group.component';
 import { getErrorMessage } from '@/app/shared/utils/form.utils';
-import { USER_TYPES } from '@/app/shared/utils/types.utils';
 import { SystemService } from '@/app/core/services';
 
 @Component({
@@ -24,7 +22,6 @@ import { SystemService } from '@/app/core/services';
     ReactiveFormsModule,
     CommonModule,
     FormInputComponent,
-    RadioGroupComponent,
   ],
   templateUrl: './signin.component.html',
   styleUrl: './signin.component.scss',
@@ -37,20 +34,16 @@ export class SigninComponent {
   ];
 
   signinForm: FormGroup;
-  userTypeOptions = [
-    { label: 'Instructor', value: USER_TYPES.INSTRUCTOR },
-    { label: 'Student', value: USER_TYPES.STUDENT },
-    { label: 'Admin', value: USER_TYPES.ADMIN },
-  ];
 
   healthStatus: 'checking' | 'ok' | 'fail' = 'checking';
   healthMessage = '';
+  showErrorDialog = false;
+  errorMessage = '';
 
   constructor(private fb: FormBuilder, private store: Store, private router: Router) {
     this.signinForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      userType: ['student', Validators.required],
     });
     this.runHealthcheckWithRetry();
   }
@@ -85,23 +78,40 @@ export class SigninComponent {
 
   async onSubmit() {
     if (this.signinForm.valid && this.healthStatus === 'ok') {
-      const { email, password, userType } = this.signinForm.value;
-      const decoded = await AuthenticationService.signin(email, password, userType);
-      const role = decoded?.user?.roleName || decoded?.user?.role;
-      const id = decoded?.user?.id || decoded?.user?.userId || undefined;
-      const name = decoded?.user?.name || decoded?.user?.fullName || decoded?.user?.email || '';
-      const avatar = decoded?.user?.avatar || undefined;
-      this.store.dispatch(setUserType({ userType: (role || '').toLowerCase() } as any));
-      this.store.dispatch(setUserProfile({ id, name, email, avatar }));
-      if (role?.toLowerCase() === 'instructor') {
-        this.router.navigate(['/instructor']);
-      } else {
-        this.router.navigate(['/student']);
+      try {
+        const { email, password } = this.signinForm.value;
+        const decoded = await AuthenticationService.signin(email, password);
+        const role = decoded?.user?.roleName;
+        const id = decoded?.user?.id;
+        const name = decoded?.user?.name || decoded?.user?.email || '';
+        const avatar = decoded?.user?.avatar || undefined;
+        this.store.dispatch(setUserType({ userType: (role || '').toLowerCase() } as any));
+        this.store.dispatch(setUserProfile({ id, name, email, avatar }));
+        if (role?.toLowerCase() === 'instructor') {
+          this.router.navigate(['/instructor/']);
+        } else if (role?.toLowerCase() === 'admin') {
+          this.router.navigate(['/admin/']);
+        } else {
+          this.router.navigate(['/student/']);
+        }
+      } catch (error: any) {
+        if (error.response?.status === 401) {
+          this.errorMessage = 'Invalid credentials provided';
+          this.showErrorDialog = true;
+        } else {
+          this.errorMessage = 'An error occurred during login. Please try again.';
+          this.showErrorDialog = true;
+        }
       }
     }
   }
 
   getErrorMessage(controlName: string): string {
     return getErrorMessage(this.signinForm.get(controlName), controlName);
+  }
+
+  closeErrorDialog() {
+    this.showErrorDialog = false;
+    this.errorMessage = '';
   }
 }

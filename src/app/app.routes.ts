@@ -18,7 +18,6 @@ import { AdminDashboardComponent } from './features/admin/admin-dashboard/admin-
 import { UserManagementComponent } from './features/admin/users/user-management.component';
 import { StudentGroupsManagementComponent } from './features/admin/student-groups/student-groups-management.component';
 import { PcAssemblySimulationComponent } from './features/student/simulation/pc-assembly-simulation.component';
-import { GamificationDashboardComponent } from './features/student/gamification/gamification-dashboard.component';
 import { ProgressTrackingComponent } from './features/student/progress/progress-tracking.component';
 import { AssessmentSubmissionsComponent } from './features/student/assessments/assessment-submissions.component';
 import { UserRolesManagementComponent } from './features/admin/user-roles/user-roles-management.component';
@@ -26,6 +25,12 @@ import { AdminModulesComponent } from './features/admin/modules/admin-modules.co
 import { AdminLabActivitiesComponent } from './features/admin/lab-activities/admin-lab-activities.component';
 import { AdminAssessmentsComponent } from './features/admin/assessments/admin-assessments.component';
 import { AdminGradesComponent } from './features/admin/grades/admin-grades.component';
+import { ManageInstructorsComponent } from './features/admin/instructors/manage-instructors.component';
+import { ManageStudentsComponent } from './features/admin/students/manage-students.component';
+import { ManageContentsComponent } from './features/admin/contents/manage-contents.component';
+import { ManageLaboratoriesComponent } from './features/admin/contents/laboratories/manage-laboratories.component';
+import { ManageAssessmentsComponent } from './features/admin/contents/assessments/manage-assessments.component';
+import { CreateAssessmentComponent } from './features/admin/contents/assessments/create-assessment.component';
 import { AboutUsComponent } from './features/public/about-us/about-us.component';
 import { ContactComponent } from './features/public/contact/contact.component';
 import { ForgotPasswordComponent } from './features/auth/forgot-password/forgot-password.component';
@@ -57,7 +62,6 @@ export const routes: Routes = [
       { path: 'grades', component: GradesPageComponent },
       { path: 'analytics', component: AnalyticsPageComponent },
       { path: 'progress', component: ProgressTrackingComponent },
-      { path: 'gamification', component: GamificationDashboardComponent },
       { path: 'assessments', component: AssessmentSubmissionsComponent },
     ],
   },
@@ -86,6 +90,19 @@ export const routes: Routes = [
       { path: 'assessments', component: AdminAssessmentsComponent },
       { path: 'grades', component: AdminGradesComponent },
       { path: 'user-roles', component: UserRolesManagementComponent },
+      { path: 'instructors', component: ManageInstructorsComponent },
+      { path: 'students', component: ManageStudentsComponent },
+            {
+              path: 'contents',
+              component: ManageContentsComponent,
+              children: [
+                { path: '', redirectTo: 'laboratories', pathMatch: 'full' },
+                { path: 'laboratories', component: ManageLaboratoriesComponent },
+                { path: 'assessments', component: ManageAssessmentsComponent },
+                { path: 'assessments/create', component: CreateAssessmentComponent },
+                { path: 'assessments/edit/:id', component: CreateAssessmentComponent },
+              ]
+            },
     ],
   },
   {

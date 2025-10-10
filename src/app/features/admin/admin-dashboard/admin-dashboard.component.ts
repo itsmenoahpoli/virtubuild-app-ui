@@ -18,11 +18,16 @@ export class AdminDashboardComponent implements OnInit {
 
   async ngOnInit() {
     try {
-      this.dashboardStats = await AdminService.getDashboardStats();
+      const response = await AdminService.getDashboardStats();
+      this.dashboardStats = response.overview || {};
     } catch (error) {
       console.error('Error loading dashboard stats:', error);
     } finally {
       this.loading = false;
     }
+  }
+
+  getProgressPercentage(value: number, maxValue: number): number {
+    return Math.min((value / maxValue) * 100, 100);
   }
 }

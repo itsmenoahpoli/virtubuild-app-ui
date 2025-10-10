@@ -18,15 +18,11 @@ export class InstructorGradesComponent implements OnInit {
   grades: any[] = [];
 
   async ngOnInit() {
-    const res = await ModulesService.list();
-    this.modules = res?.data || [];
-    if (this.modules[0]) {
-      const acts = await ActivitiesService.listByModule(this.modules[0].id);
-      this.activities = acts?.data || [];
-      if (this.activities[0]) {
-        const gs = await GradesService.listForActivity(this.activities[0].id);
-        this.grades = gs?.data || [];
-      }
+    const acts = await ActivitiesService.list();
+    this.activities = acts?.data || [];
+    if (this.activities[0]) {
+      const gs = await GradesService.listForActivity(this.activities[0].id);
+      this.grades = gs?.data || [];
     }
   }
 }

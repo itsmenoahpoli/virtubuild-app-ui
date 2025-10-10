@@ -66,23 +66,23 @@ export const AdminService = {
     return res.data;
   },
   getAllLabActivities: async () => {
-    const res = await httpClient.get('/admin/lab-activities');
+    const res = await httpClient.get('/activities');
     return res.data;
   },
   getLabActivityById: async (id: number) => {
-    const res = await httpClient.get(`/admin/lab-activities/${id}`);
+    const res = await httpClient.get(`/activities/${id}`);
     return res.data;
   },
   createLabActivity: async (data: any) => {
-    const res = await httpClient.post('/admin/lab-activities', data);
+    const res = await httpClient.post('/activities', data);
     return res.data;
   },
   updateLabActivity: async (id: number, data: any) => {
-    const res = await httpClient.put(`/admin/lab-activities/${id}`, data);
+    const res = await httpClient.put(`/activities/${id}`, data);
     return res.data;
   },
   deleteLabActivity: async (id: number) => {
-    const res = await httpClient.delete(`/admin/lab-activities/${id}`);
+    const res = await httpClient.delete(`/activities/${id}`);
     return res.data;
   },
   getAllAssessments: async () => {
@@ -91,6 +91,10 @@ export const AdminService = {
   },
   getAssessmentById: async (id: number) => {
     const res = await httpClient.get(`/admin/assessments/${id}`);
+    return res.data;
+  },
+  getAssessmentSubmissions: async (id: number) => {
+    const res = await httpClient.get(`/admin/assessments/${id}/submissions`);
     return res.data;
   },
   createAssessment: async (data: any) => {

@@ -15,20 +15,25 @@ const decodeJwt = (token: string): any => {
 export const AuthenticationService = {
   signin: async (
     email: string,
-    password: string,
-    userType: 'student' | 'admin' | 'instructor'
+    password: string
   ) => {
     const response = await httpClient.post('/auth/signin', {
       email,
       password,
-      userType,
     });
     const token = response.data?.authToken;
+    const userData = response.data?.user;
+    
     if (token) {
       localStorage.setItem('authToken', token);
     }
+    
     const decoded = token ? decodeJwt(token) : null;
-    return decoded;
+    
+    return {
+      ...decoded,
+      user: userData || decoded?.user
+    };
   },
   signout: () => {
     localStorage.removeItem('authToken');
